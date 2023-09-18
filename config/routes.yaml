@@ -11,3 +11,11 @@ app_homepage:
 dashboard:
     path: /dashboard
     controller: App\Controller\DashboardController::index
+
+app_juegos:
+    path: /juegos
+    controller: App\Controller\HomeController::juegos
+
+manuales:
+    path: /manuales
+    controller: App\Controller\HomeController::manuales
