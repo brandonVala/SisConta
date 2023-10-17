@@ -28,5 +28,22 @@ class ClasificacionC
      */
     private $nombreClasificacion;
 
+    public function getIdclasificacionCuentas(): ?int
+    {
+        return $this->idclasificacionCuentas;
+    }
+
+    public function getNombreClasificacion(): ?string
+    {
+        return $this->nombreClasificacion;
+    }
+
+    public function setNombreClasificacion(string $nombreClasificacion): static
+    {
+        $this->nombreClasificacion = $nombreClasificacion;
+
+        return $this;
+    }
+
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -79,6 +80,95 @@ class EjercicioFiscal
      * })
      */
     private $empresaIdempresa;
+
+    public function getIdejercicioFiscal(): ?int
+    {
+        return $this->idejercicioFiscal;
+    }
+
+    public function getFecha(): ?\DateTimeInterface
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(\DateTimeInterface $fecha): static
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    public function getMes(): ?string
+    {
+        return $this->mes;
+    }
+
+    public function setMes(string $mes): static
+    {
+        $this->mes = $mes;
+
+        return $this;
+    }
+
+    public function getEstado(): ?string
+    {
+        return $this->estado;
+    }
+
+    public function setEstado(string $estado): static
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    public function getFechaFin(): ?\DateTimeInterface
+    {
+        return $this->fechaFin;
+    }
+
+    public function setFechaFin(\DateTimeInterface $fechaFin): static
+    {
+        $this->fechaFin = $fechaFin;
+
+        return $this;
+    }
+
+    public function getObservaciones(): ?string
+    {
+        return $this->observaciones;
+    }
+
+    public function setObservaciones(string $observaciones): static
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+
+    public function getProcReg(): ?ProcedimientoReg
+    {
+        return $this->procReg;
+    }
+
+    public function setProcReg(?ProcedimientoReg $procReg): static
+    {
+        $this->procReg = $procReg;
+
+        return $this;
+    }
+
+    public function getEmpresaIdempresa(): ?Empresa
+    {
+        return $this->empresaIdempresa;
+    }
+
+    public function setEmpresaIdempresa(?Empresa $empresaIdempresa): static
+    {
+        $this->empresaIdempresa = $empresaIdempresa;
+
+        return $this;
+    }
 
 
 }

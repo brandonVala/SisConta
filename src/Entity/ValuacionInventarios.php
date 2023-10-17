@@ -40,5 +40,34 @@ class ValuacionInventarios
      */
     private $empresaIdempresa;
 
+    public function getCodigovaluacion(): ?int
+    {
+        return $this->codigovaluacion;
+    }
+
+    public function getNombreValuacion(): ?string
+    {
+        return $this->nombreValuacion;
+    }
+
+    public function setNombreValuacion(string $nombreValuacion): static
+    {
+        $this->nombreValuacion = $nombreValuacion;
+
+        return $this;
+    }
+
+    public function getEmpresaIdempresa(): ?Empresa
+    {
+        return $this->empresaIdempresa;
+    }
+
+    public function setEmpresaIdempresa(?Empresa $empresaIdempresa): static
+    {
+        $this->empresaIdempresa = $empresaIdempresa;
+
+        return $this;
+    }
+
 
 }

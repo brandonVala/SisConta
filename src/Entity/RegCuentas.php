@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -98,6 +99,119 @@ class RegCuentas
      * })
      */
     private $ejerIdejercicioFiscal;
+
+    public function getIdregCuentas(): ?int
+    {
+        return $this->idregCuentas;
+    }
+
+    public function getNumPoliza(): ?int
+    {
+        return $this->numPoliza;
+    }
+
+    public function setNumPoliza(int $numPoliza): static
+    {
+        $this->numPoliza = $numPoliza;
+
+        return $this;
+    }
+
+    public function getFechaFactura(): ?\DateTimeInterface
+    {
+        return $this->fechaFactura;
+    }
+
+    public function setFechaFactura(\DateTimeInterface $fechaFactura): static
+    {
+        $this->fechaFactura = $fechaFactura;
+
+        return $this;
+    }
+
+    public function getFechaReg(): ?\DateTimeInterface
+    {
+        return $this->fechaReg;
+    }
+
+    public function setFechaReg(\DateTimeInterface $fechaReg): static
+    {
+        $this->fechaReg = $fechaReg;
+
+        return $this;
+    }
+
+    public function getNombreCuenta(): ?string
+    {
+        return $this->nombreCuenta;
+    }
+
+    public function setNombreCuenta(string $nombreCuenta): static
+    {
+        $this->nombreCuenta = $nombreCuenta;
+
+        return $this;
+    }
+
+    public function getConcepto(): ?string
+    {
+        return $this->concepto;
+    }
+
+    public function setConcepto(string $concepto): static
+    {
+        $this->concepto = $concepto;
+
+        return $this;
+    }
+
+    public function getMonto(): ?float
+    {
+        return $this->monto;
+    }
+
+    public function setMonto(float $monto): static
+    {
+        $this->monto = $monto;
+
+        return $this;
+    }
+
+    public function getCuentasCodigoCuenta(): ?Cuentas
+    {
+        return $this->cuentasCodigoCuenta;
+    }
+
+    public function setCuentasCodigoCuenta(?Cuentas $cuentasCodigoCuenta): static
+    {
+        $this->cuentasCodigoCuenta = $cuentasCodigoCuenta;
+
+        return $this;
+    }
+
+    public function getCodigoNaturaleza(): ?Naturaleza
+    {
+        return $this->codigoNaturaleza;
+    }
+
+    public function setCodigoNaturaleza(?Naturaleza $codigoNaturaleza): static
+    {
+        $this->codigoNaturaleza = $codigoNaturaleza;
+
+        return $this;
+    }
+
+    public function getEjerIdejercicioFiscal(): ?EjercicioFiscal
+    {
+        return $this->ejerIdejercicioFiscal;
+    }
+
+    public function setEjerIdejercicioFiscal(?EjercicioFiscal $ejerIdejercicioFiscal): static
+    {
+        $this->ejerIdejercicioFiscal = $ejerIdejercicioFiscal;
+
+        return $this;
+    }
 
 
 }

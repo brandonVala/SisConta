@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +51,47 @@ class ProcedimientoReg
     public function __construct()
     {
         $this->codigoCuenta = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getCodigoProcReg(): ?int
+    {
+        return $this->codigoProcReg;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): static
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cuentas>
+     */
+    public function getCodigoCuenta(): Collection
+    {
+        return $this->codigoCuenta;
+    }
+
+    public function addCodigoCuentum(Cuentas $codigoCuentum): static
+    {
+        if (!$this->codigoCuenta->contains($codigoCuentum)) {
+            $this->codigoCuenta->add($codigoCuentum);
+        }
+
+        return $this;
+    }
+
+    public function removeCodigoCuentum(Cuentas $codigoCuentum): static
+    {
+        $this->codigoCuenta->removeElement($codigoCuentum);
+
+        return $this;
     }
 
 }

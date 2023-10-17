@@ -89,5 +89,118 @@ class AltaMateriales
      */
     private $empresaIdempresa;
 
+    public function getCodigoMateriales(): ?int
+    {
+        return $this->codigoMateriales;
+    }
+
+    public function getPosicionFinanciera(): ?string
+    {
+        return $this->posicionFinanciera;
+    }
+
+    public function setPosicionFinanciera(string $posicionFinanciera): static
+    {
+        $this->posicionFinanciera = $posicionFinanciera;
+
+        return $this;
+    }
+
+    public function getMaterial(): ?string
+    {
+        return $this->material;
+    }
+
+    public function setMaterial(string $material): static
+    {
+        $this->material = $material;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): static
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getUnidadMedida(): ?string
+    {
+        return $this->unidadMedida;
+    }
+
+    public function setUnidadMedida(string $unidadMedida): static
+    {
+        $this->unidadMedida = $unidadMedida;
+
+        return $this;
+    }
+
+    public function getPrecioUnitario(): ?float
+    {
+        return $this->precioUnitario;
+    }
+
+    public function setPrecioUnitario(float $precioUnitario): static
+    {
+        $this->precioUnitario = $precioUnitario;
+
+        return $this;
+    }
+
+    public function getMarca(): ?string
+    {
+        return $this->marca;
+    }
+
+    public function setMarca(string $marca): static
+    {
+        $this->marca = $marca;
+
+        return $this;
+    }
+
+    public function getLote(): ?string
+    {
+        return $this->lote;
+    }
+
+    public function setLote(string $lote): static
+    {
+        $this->lote = $lote;
+
+        return $this;
+    }
+
+    public function getSerie(): ?string
+    {
+        return $this->serie;
+    }
+
+    public function setSerie(string $serie): static
+    {
+        $this->serie = $serie;
+
+        return $this;
+    }
+
+    public function getEmpresaIdempresa(): ?Empresa
+    {
+        return $this->empresaIdempresa;
+    }
+
+    public function setEmpresaIdempresa(?Empresa $empresaIdempresa): static
+    {
+        $this->empresaIdempresa = $empresaIdempresa;
+
+        return $this;
+    }
+
 
 }

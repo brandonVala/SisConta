@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -103,6 +104,119 @@ class RegEntradasSalidas
      * })
      */
     private $altamaterialesCodigo;
+
+    public function getIdentradasSalidas(): ?int
+    {
+        return $this->identradasSalidas;
+    }
+
+    public function getFechaReg(): ?\DateTimeInterface
+    {
+        return $this->fechaReg;
+    }
+
+    public function setFechaReg(\DateTimeInterface $fechaReg): static
+    {
+        $this->fechaReg = $fechaReg;
+
+        return $this;
+    }
+
+    public function getUnidadMedida(): ?string
+    {
+        return $this->unidadMedida;
+    }
+
+    public function setUnidadMedida(string $unidadMedida): static
+    {
+        $this->unidadMedida = $unidadMedida;
+
+        return $this;
+    }
+
+    public function getCantidad(): ?float
+    {
+        return $this->cantidad;
+    }
+
+    public function setCantidad(float $cantidad): static
+    {
+        $this->cantidad = $cantidad;
+
+        return $this;
+    }
+
+    public function getCostoUnitario(): ?float
+    {
+        return $this->costoUnitario;
+    }
+
+    public function setCostoUnitario(float $costoUnitario): static
+    {
+        $this->costoUnitario = $costoUnitario;
+
+        return $this;
+    }
+
+    public function getTotal(): ?float
+    {
+        return $this->total;
+    }
+
+    public function setTotal(?float $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    public function getCodigovaluacion(): ?ValuacionInventarios
+    {
+        return $this->codigovaluacion;
+    }
+
+    public function setCodigovaluacion(?ValuacionInventarios $codigovaluacion): static
+    {
+        $this->codigovaluacion = $codigovaluacion;
+
+        return $this;
+    }
+
+    public function getCodigoNaturaleza(): ?Naturaleza
+    {
+        return $this->codigoNaturaleza;
+    }
+
+    public function setCodigoNaturaleza(?Naturaleza $codigoNaturaleza): static
+    {
+        $this->codigoNaturaleza = $codigoNaturaleza;
+
+        return $this;
+    }
+
+    public function getEmpresaIdempresa(): ?Empresa
+    {
+        return $this->empresaIdempresa;
+    }
+
+    public function setEmpresaIdempresa(?Empresa $empresaIdempresa): static
+    {
+        $this->empresaIdempresa = $empresaIdempresa;
+
+        return $this;
+    }
+
+    public function getAltamaterialesCodigo(): ?AltaMateriales
+    {
+        return $this->altamaterialesCodigo;
+    }
+
+    public function setAltamaterialesCodigo(?AltaMateriales $altamaterialesCodigo): static
+    {
+        $this->altamaterialesCodigo = $altamaterialesCodigo;
+
+        return $this;
+    }
 
 
 }

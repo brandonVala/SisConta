@@ -28,5 +28,22 @@ class Naturaleza
      */
     private $tipoNaturaleza;
 
+    public function getCodigoNaturaleza(): ?int
+    {
+        return $this->codigoNaturaleza;
+    }
+
+    public function getTipoNaturaleza(): ?string
+    {
+        return $this->tipoNaturaleza;
+    }
+
+    public function setTipoNaturaleza(string $tipoNaturaleza): static
+    {
+        $this->tipoNaturaleza = $tipoNaturaleza;
+
+        return $this;
+    }
+
 
 }

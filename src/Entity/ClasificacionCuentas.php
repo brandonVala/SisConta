@@ -48,5 +48,41 @@ class ClasificacionCuentas
      */
     private $clasifprincipalIdRecurso;
 
+    public function getCuentasCodigoCuenta(): ?Cuentas
+    {
+        return $this->cuentasCodigoCuenta;
+    }
+
+    public function setCuentasCodigoCuenta(?Cuentas $cuentasCodigoCuenta): static
+    {
+        $this->cuentasCodigoCuenta = $cuentasCodigoCuenta;
+
+        return $this;
+    }
+
+    public function getClasificacionCuentas(): ?ClasificacionC
+    {
+        return $this->clasificacionCuentas;
+    }
+
+    public function setClasificacionCuentas(?ClasificacionC $clasificacionCuentas): static
+    {
+        $this->clasificacionCuentas = $clasificacionCuentas;
+
+        return $this;
+    }
+
+    public function getClasifprincipalIdRecurso(): ?Clasifprincipal
+    {
+        return $this->clasifprincipalIdRecurso;
+    }
+
+    public function setClasifprincipalIdRecurso(?Clasifprincipal $clasifprincipalIdRecurso): static
+    {
+        $this->clasifprincipalIdRecurso = $clasifprincipalIdRecurso;
+
+        return $this;
+    }
+
 
 }

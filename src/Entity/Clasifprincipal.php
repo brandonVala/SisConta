@@ -28,5 +28,22 @@ class Clasifprincipal
      */
     private $nombreRecurso;
 
+    public function getIdRecurso(): ?int
+    {
+        return $this->idRecurso;
+    }
+
+    public function getNombreRecurso(): ?string
+    {
+        return $this->nombreRecurso;
+    }
+
+    public function setNombreRecurso(string $nombreRecurso): static
+    {
+        $this->nombreRecurso = $nombreRecurso;
+
+        return $this;
+    }
+
 
 }

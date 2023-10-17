@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -77,6 +79,95 @@ class Usuarios
     public function __construct()
     {
         $this->idempresa = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): static
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getApp(): ?string
+    {
+        return $this->app;
+    }
+
+    public function setApp(string $app): static
+    {
+        $this->app = $app;
+
+        return $this;
+    }
+
+    public function getApm(): ?string
+    {
+        return $this->apm;
+    }
+
+    public function setApm(string $apm): static
+    {
+        $this->apm = $apm;
+
+        return $this;
+    }
+
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    public function setTel(string $tel): static
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function getContrasena(): ?string
+    {
+        return $this->contrasena;
+    }
+
+    public function setContrasena(string $contrasena): static
+    {
+        $this->contrasena = $contrasena;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Empresa>
+     */
+    public function getIdempresa(): Collection
+    {
+        return $this->idempresa;
+    }
+
+    public function addIdempresa(Empresa $idempresa): static
+    {
+        if (!$this->idempresa->contains($idempresa)) {
+            $this->idempresa->add($idempresa);
+        }
+
+        return $this;
+    }
+
+    public function removeIdempresa(Empresa $idempresa): static
+    {
+        $this->idempresa->removeElement($idempresa);
+
+        return $this;
     }
 
 }

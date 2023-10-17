@@ -47,5 +47,46 @@ class CuentasInfo
      */
     private $codigoProcReg;
 
+    public function getCodigoCuenta(): ?int
+    {
+        return $this->codigoCuenta;
+    }
+
+    public function getNombreCuenta(): ?string
+    {
+        return $this->nombreCuenta;
+    }
+
+    public function setNombreCuenta(string $nombreCuenta): static
+    {
+        $this->nombreCuenta = $nombreCuenta;
+
+        return $this;
+    }
+
+    public function getTipoRecurso(): ?string
+    {
+        return $this->tipoRecurso;
+    }
+
+    public function setTipoRecurso(string $tipoRecurso): static
+    {
+        $this->tipoRecurso = $tipoRecurso;
+
+        return $this;
+    }
+
+    public function getCodigoProcReg(): ?ProcedimientoReg
+    {
+        return $this->codigoProcReg;
+    }
+
+    public function setCodigoProcReg(?ProcedimientoReg $codigoProcReg): static
+    {
+        $this->codigoProcReg = $codigoProcReg;
+
+        return $this;
+    }
+
 
 }
