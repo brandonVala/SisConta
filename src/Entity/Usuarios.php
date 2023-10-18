@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Usuarios
@@ -12,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuarios")
  * @ORM\Entity
  */
-class Usuarios
+class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @var string
@@ -54,9 +56,17 @@ class Usuarios
     /**
      * @var string
      *
-     * @ORM\Column(name="Contrasena", type="string", length=45, nullable=false)
+     * @ORM\Column(name="Contrasena", type="string", length=255, nullable=false)
      */
     private $contrasena;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="Roles", type="json")
+     */
+    private $roles = [];
+
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -134,15 +144,20 @@ class Usuarios
         return $this->email;
     }
 
+    /**
+     * @return string The hashed password
+     */
     public function getContrasena(): ?string
     {
         return $this->contrasena;
     }
 
-    public function setContrasena(string $contrasena): static
+    /**
+     * @param string $password
+     */
+    public function setContrasena(string $password): self
     {
-        $this->contrasena = $contrasena;
-
+        $this->contrasena = $password;
         return $this;
     }
 
@@ -169,5 +184,33 @@ class Usuarios
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     * @return $this
+     */
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        // Implementación específica si es necesario para el hash de la contraseña
+        return null;
+    }
+
 
 }

@@ -11,8 +11,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<Admin>
- *
- * @implements PasswordUpgraderInterface<Admin>
+* @implements PasswordUpgraderInterface<Admin>
  *
  * @method Admin|null find($id, $lockMode = null, $lockVersion = null)
  * @method Admin|null findOneBy(array $criteria, array $orderBy = null)
