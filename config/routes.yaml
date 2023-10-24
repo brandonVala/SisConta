@@ -15,3 +15,7 @@ app_juegos:
 manuales:
     path: /manuales
     controller: App\Controller\HomeController::manuales
+
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register

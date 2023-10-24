@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ClasificacionCuentas
  *
- * @ORM\Table(name="clasificacion_cuentas", indexes={@ORM\Index(name="fk_Clasificacion_Cuentas_has_Cuentas_Cuentas1_idx", columns={"Cuentas_Codigo_Cuenta"}), @ORM\Index(name="fk_Clasificacion_Cuentas_has_Cuentas_Clasificacion_Cuentas1_idx", columns={"Clasificacion_Cuentas"}), @ORM\Index(name="fk_clasificacion_cuentas_ClasifPrincipal1_idx", columns={"ClasifPrincipal_id_Recurso"})})
+ * @ORM\Table(name="clasificacion_cuentas", indexes={@ORM\Index(name="fk_clasificacion_cuentas_ClasifPrincipal1_idx", columns={"ClasifPrincipal_id_Recurso"}), @ORM\Index(name="fk_Clasificacion_Cuentas_has_Cuentas_Clasificacion_Cuentas1_idx", columns={"Clasificacion_Cuentas"}), @ORM\Index(name="fk_Clasificacion_Cuentas_has_Cuentas_Cuentas1_idx", columns={"Cuentas_Codigo_Cuenta"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ClasificacionCuentasRepository")
  */
 class ClasificacionCuentas
 {

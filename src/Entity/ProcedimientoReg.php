@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="procedimiento_reg")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ProcedimientoRegRepository")
  */
 class ProcedimientoReg
 {

@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="empresa")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EmpresaRepository")
  */
 class Empresa
 {

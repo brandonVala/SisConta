@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\ClasifPrincipal;
+use App\Entity\Clasifprincipal;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ClasifPrincipal>
+ * @extends ServiceEntityRepository<Clasifprincipal>
  *
- * @method ClasifPrincipal|null find($id, $lockMode = null, $lockVersion = null)
- * @method ClasifPrincipal|null findOneBy(array $criteria, array $orderBy = null)
- * @method ClasifPrincipal[]    findAll()
- * @method ClasifPrincipal[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Clasifprincipal|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Clasifprincipal|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Clasifprincipal[]    findAll()
+ * @method Clasifprincipal[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClasifPrincipalRepository extends ServiceEntityRepository
+class ClasifprincipalRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ClasifPrincipal::class);
+        parent::__construct($registry, Clasifprincipal::class);
     }
 
 //    /**
-//     * @return ClasifPrincipal[] Returns an array of ClasifPrincipal objects
+//     * @return Clasifprincipal[] Returns an array of Clasifprincipal objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class ClasifPrincipalRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ClasifPrincipal
+//    public function findOneBySomeField($value): ?Clasifprincipal
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

@@ -2,39 +2,80 @@
 
 namespace App\Entity;
 
-use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
- * @ORM\Entity(repositoryClass=AdminRepository::class)
- * @ORM\Table(name="`admin`")
+ * Admin
+ *
+ * @ORM\Table(name="admin", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_880E0D76E7927C74", columns={"email"})})
+ * @ORM\Entity
  */
-class Admin implements UserInterface, PasswordAuthenticatedUserInterface
+class Admin
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private ?int $id = null;
+    private $id;
 
     /**
-     * @ORM\Column(length=180, unique=true)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=180, nullable=false)
      */
-    private ?string $email = null;
+    private $email;
 
     /**
-     * @ORM\Column
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="json", nullable=false)
      */
-    private array $roles = [];
+    private $roles;
 
     /**
-     * @var string The hashed password
-     * @ORM\Column
+     * @var ArrayCollection|Collection|Usuarios[]
+     *
+     * @ORM\OneToMany(targetEntity="Usuarios", mappedBy="admin")
      */
-    private ?string $password = null;
+    private $usuarios;
+
+    public function __construct()
+    {
+        $this->usuarios = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection|Collection|Usuarios[]
+     */
+    public function getUsuarios()
+    {
+        return $this->usuarios;
+    }
+
+    public function addUsuario(Usuarios $usuario)
+    {
+        if (!$this->usuarios->contains($usuario)) {
+            $this->usuarios->add($usuario);
+        }
+    }
+
+    public function removeUsuario(Usuarios $usuario)
+    {
+        $this->usuarios->removeElement($usuario);
+    }
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
 
     public function getId(): ?int
     {
@@ -53,26 +94,9 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->email;
-    }
-
-    /**
-     * @see UserInterface
-     */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
+        return $this->roles;
     }
 
     public function setRoles(array $roles): static
@@ -82,10 +106,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -97,13 +118,5 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials(): void
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
 
 }

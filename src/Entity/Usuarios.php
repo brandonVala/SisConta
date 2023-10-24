@@ -5,14 +5,16 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Usuarios
  *
  * @ORM\Table(name="usuarios")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\UsuariosRepository")
+ * 
  */
 class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -54,18 +56,35 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Contrasena", type="string", length=255, nullable=false)
-     */
-    private $contrasena;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="Roles", type="json")
+     * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+
+    /**
+     * @var Admin
+     *
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="usuarios")
+     * @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
+     */
+    private $admin;
+    
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(Admin $admin)
+    {
+        $this->admin = $admin;
+    }
+
 
 
     /**
@@ -82,6 +101,7 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
      * )
      */
     private $idempresa = array();
+
 
     /**
      * Constructor
@@ -145,23 +165,6 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return string The hashed password
-     */
-    public function getContrasena(): ?string
-    {
-        return $this->contrasena;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setContrasena(string $password): self
-    {
-        $this->contrasena = $password;
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Empresa>
      */
     public function getIdempresa(): Collection
@@ -185,31 +188,57 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return array
+   /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
      */
-    public function getRoles(): array
+    public function getUserIdentifier(): string
     {
-        return $this->roles;
+        return (string) $this->email;
     }
 
     /**
-     * @param array $roles
-     * @return $this
+     * @see UserInterface
      */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
         return $this;
     }
 
     /**
      * @see UserInterface
      */
-    public function getSalt(): ?string
+    public function eraseCredentials(): void
     {
-        // Implementación específica si es necesario para el hash de la contraseña
-        return null;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
 

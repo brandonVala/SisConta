@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="ejercicio_fiscal", indexes={@ORM\Index(name="fk_Ejercicio_Fiscal_Empresa1_idx", columns={"Empresa_idEmpresa"}), @ORM\Index(name="fk_Ejercicio_Fiscal_Procedimiento_Reg1_idx", columns={"Proc_Reg"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EjercicioFiscalRepository")
  */
 class EjercicioFiscal
 {

@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="valuacion_inventarios", indexes={@ORM\Index(name="fk_valuacion_inventarios_empresa1_idx", columns={"empresa_idEmpresa"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ValuacionInventariosRepository")
+ * 
  */
 class ValuacionInventarios
 {

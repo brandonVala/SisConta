@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="clasifprincipal")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ClasifprincipalRepository")
  */
 class Clasifprincipal
 {

@@ -8,8 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RegEntradasSalidas
  *
- * @ORM\Table(name="reg_entradas_salidas", indexes={@ORM\Index(name="fk_reg_entradas_salidas_empresa1_idx", columns={"empresa_idEmpresa"}), @ORM\Index(name="fk_reg_entradas_salidas_alta_materiales1_idx", columns={"altaMateriales_Codigo"}), @ORM\Index(name="fk_reg_entradas_salidas_naturaleza1_idx", columns={"Codigo_Naturaleza"}), @ORM\Index(name="fk_reg_entradas_salidas_valuacion_inventarios1_idx", columns={"CodigoValuacion"})})
+ * @ORM\Table(name="reg_entradas_salidas", indexes={@ORM\Index(name="fk_reg_entradas_salidas_valuacion_inventarios1_idx", columns={"CodigoValuacion"}), @ORM\Index(name="fk_reg_entradas_salidas_alta_materiales1_idx", columns={"altaMateriales_Codigo"}), @ORM\Index(name="fk_reg_entradas_salidas_naturaleza1_idx", columns={"Codigo_Naturaleza"}), @ORM\Index(name="fk_reg_entradas_salidas_empresa1_idx", columns={"empresa_idEmpresa"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\RegEntradasSalidasRepository")
+ * 
  */
 class RegEntradasSalidas
 {

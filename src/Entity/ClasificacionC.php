@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="clasificacion_c")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ClasificacionCRepository")
  */
 class ClasificacionC
 {
@@ -28,6 +29,7 @@ class ClasificacionC
      */
     private $nombreClasificacion;
 
+     
     public function getIdclasificacionCuentas(): ?int
     {
         return $this->idclasificacionCuentas;

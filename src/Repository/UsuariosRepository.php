@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\UsuariosEmpresa;
+use App\Entity\Usuarios;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<UsuariosEmpresa>
+ * @extends ServiceEntityRepository<Usuarios>
  *
- * @method UsuariosEmpresa|null find($id, $lockMode = null, $lockVersion = null)
- * @method UsuariosEmpresa|null findOneBy(array $criteria, array $orderBy = null)
- * @method UsuariosEmpresa[]    findAll()
- * @method UsuariosEmpresa[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Usuarios|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Usuarios|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Usuarios[]    findAll()
+ * @method Usuarios[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UsuariosEmpresaRepository extends ServiceEntityRepository
+class UsuariosRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, UsuariosEmpresa::class);
+        parent::__construct($registry, Usuarios::class);
     }
 
 //    /**
-//     * @return UsuariosEmpresa[] Returns an array of UsuariosEmpresa objects
+//     * @return Usuarios[] Returns an array of Usuarios objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class UsuariosEmpresaRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?UsuariosEmpresa
+//    public function findOneBySomeField($value): ?Usuarios
 //    {
 //        return $this->createQueryBuilder('u')
 //            ->andWhere('u.exampleField = :val')
