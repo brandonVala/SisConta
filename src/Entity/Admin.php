@@ -5,6 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
 
 /**
  * Admin
@@ -12,7 +15,7 @@ use Doctrine\Common\Collections\Collection;
  * @ORM\Table(name="admin", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_880E0D76E7927C74", columns={"email"})})
  * @ORM\Entity
  */
-class Admin
+class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @var int
@@ -36,6 +39,13 @@ class Admin
      * @ORM\Column(name="roles", type="json", nullable=false)
      */
     private $roles;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
 
     /**
      * @var ArrayCollection|Collection|Usuarios[]
@@ -69,54 +79,64 @@ class Admin
         $this->usuarios->removeElement($usuario);
     }
 
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255, nullable=false)
-     */
-    private $password;
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
     {
-        return $this->email;
+        return (string) $this->email;
     }
 
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
+    /**
+     * @see UserInterface
+     */
     public function getRoles(): array
     {
-        return $this->roles;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_ADMIN';
+
+        return array_unique($roles);
     }
 
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    
 
 }
