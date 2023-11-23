@@ -38,9 +38,6 @@ class CuentasInfo
 
     /**
      * @var \ProcedimientoReg
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="ProcedimientoReg")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Codigo_Proc_Reg", referencedColumnName="Codigo_Proc_Reg")

@@ -83,6 +83,15 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+    
+    public function setEmail(string $email): void
+        {
+            $this->email = $email;
+        }
 
     /**
      * A visual identifier that represents this user.

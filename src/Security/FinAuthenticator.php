@@ -44,13 +44,17 @@ class FinAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse($targetPath);
+        $roles = $token->getRoleNames();
+
+        // Redirigir según el rol del usuario
+        if (in_array('ROLE_ADMIN', $roles)) {
+            return new RedirectResponse($this->urlGenerator->generate('admin')); // Reemplaza 'admin_dashboard' con la ruta de tu área de administrador
+        } elseif (in_array('ROLE_USER', $roles)) {
+            return new RedirectResponse($this->urlGenerator->generate('app_user_inicio')); // Reemplaza 'user_dashboard' con la ruta de tu área de usuario
         }
 
-        // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        return new RedirectResponse($this->urlGenerator->generate('admin'));
+        // Redirigir a una ruta predeterminada si el rol no se reconoce
+        return new RedirectResponse($this->urlGenerator->generate('home'));
     }
 
     protected function getLoginUrl(Request $request): string

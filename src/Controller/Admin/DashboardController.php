@@ -5,18 +5,40 @@ namespace App\Controller\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use App\Entity\Admin;
+use App\Entity\ClasificacionCuentas;
+use App\Entity\CuentasInfo;
+
+
 
 class DashboardController extends AbstractDashboardController
 {
     /**
      * @Route("/admin", name="admin")
+     *
      */
     public function index(): Response
     {
-        return parent::index();
+        
+
+        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(AdminCrudController::class)->generateUrl();
+        return $this->redirect($url);
+
+        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(ClasificacionCuentasCrudController::class)->generateUrl();
+        return $this->redirect($url);
+
+        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(CuentasInfoCrudController::class)->generateUrl();
+        return $this->redirect($url);
+
+        
+        
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
@@ -38,12 +60,17 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('SisConta');
+            ->setTitle('FinanSisTech');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Administradores', 'fa-solid fa-user-tie', Admin::class);
+        yield MenuItem::linkToCrud('Clasificacion Cuentas', 'fa-solid fa-table-list', ClasificacionCuentas::class);
+        yield MenuItem::linkToCrud('Informacion de Cuentas', 'fa-solid fa-table-list', CuentasInfo::class);
+
+
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

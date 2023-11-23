@@ -1,162 +1,134 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
     <title>FinanSisTech</title>
-
     <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}">
-
-
+    <link rel="stylesheet" href="{{ asset('css/home/css/bootstrap.min.css') }}">
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ asset('home/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/templatemo-onix-digital.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/animated.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/owl.css') }}">
-  </head>
-
+    <link rel="stylesheet" href="{{ asset('css/home/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home/templatemo-onix-digital.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home/animated.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home/owl.css') }}">
+</head>
 <body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="{{ asset ('home/img/logo.png') }}" >
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
-              <li class="scroll-to-section"><a href="#video">Videos</a></li> 
-              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
-              <li class="scroll-to-section"><div class="main-blue-button-hover"><a href="#contact">Contact Us Now</a></div></li> 
-            </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="{{ asset('img/home/images/logo.png') }}">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
+                            <li class="scroll-to-section"><a href="#video">Videos</a></li>
+                            <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+                            <li class="scroll-to-section">
+                                <div class="main-blue-button-hover"><a href="#contact">Contact Us Now</a></div>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="owl-carousel owl-banner">
-                <div class="item header-text">
-                  <h6>Bienvenido a FinanSisTech</h6>
-                  <h2>Plataforma<em>única para</em> experiencia <span>Financiera</span>.</h2>
-                  <p>Sumergete en una experiencia envolvente que combina la teoria financiera con la practica en un entorno seguro y educativo</p>
-                  <div class="down-buttons">
-                     <div class="main-blue-button-hover">
-                        <a href="{{ path('app_login') }}">¡Comenzar ahora!</a>
+    <div class="main-banner" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="owl-carousel owl-banner">
+                                <div class="item header-text">
+                                    <h6>Bienvenido a FinanSisTech</h6>
+                                    <h2>Plataforma<em>única para</em> experiencia <span>Financiera</span>.</h2>
+                                    <p>Sumergete en una experiencia envolvente que combina la teoria financiera con la practica en un entorno seguro y educativo</p>
+                                    <div class="down-buttons">
+                                        <div class="main-blue-button-hover">
+                                            <a href="{{ path('app_login') }}">¡Comenzar ahora!</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="main-blue-button-hover">
+                                        <a href="#contact">Juegos Conta</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="down-buttons">
-                     <div class="main-blue-button-hover">
+            </div>
+        </div>
+    </div>
+    <div id="services" class="our-services section">
+        <div class="services-right-dec">
+            <img src="{{ asset ('img/home/images/services-right-dec.png') }}">
+        </div>
+        <div class="container">
+            <div class="services-left-dec">
+                <img src="{{ asset ('img/home/images/services-left-dec.png') }}">
+            </div>
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Que <em>es </em>FinanSisTech<span>?</span></h2>
+                        <span>Our Services</span>
                     </div>
                 </div>
-                 <div class="main-blue-button-hover">
-                      <a href="#contact">Juegos Conta</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-services">
+                        <div class="item">
+                            <h4>Plataforma Educativa Integral</h4>
+                            <div class="icon"> <img src="{{ asset ('img/home/images/service-icon-01.png') }}" > </div>
+                            <p>Proporciona a docentes y alumnos una experiencia completa en el mundo de las instituciones y empresas.</p>
+                        </div>
+                        <div class="item">
+                            <h4>Experiencia Envolvente</h4>
+                            <div class="icon"><img src="{{ asset ('img/home/images/service-icon-02.png') }}" > </div>
+                            <p>Crea un entorno virtual realista donde los usuarios pueden interactuar con situaciones empresariales y financieras de la vida real.</p>
+                        </div>
+                        <div class="item">
+                            <h4>Teoría y Práctica en Conjunto</h4>
+                            <div class="icon"><img src="{{ asset ('img/home/images/service-icon-03.png') }}" > </div>
+                            <p>Entendemos que la verdadera comprensión proviene de combinar la teoría con la práctica</p>
+                        </div>
+                        <div class="item">
+                            <h4>Enfoque en Seguridad Educativa</h4>
+                            <div class="icon"><img src="{{ asset ('img/home/images/service-icon-04.png') }}" > </div>
+                            <p>Esto brinda un ambiente seguro para explorar, tomar decisiones y aprender de los resultados.</p>
+                        </div>
+                        <div class="item">
+                            <h4>Interacción Institucional y Empresarial</h4>
+                            <div class="icon"><img src="{{ asset ('img/home/images/service-icon-01.png') }}" > </div>
+                            <p>Los usuarios pueden explorar cómo funcionan las operaciones financieras, la toma de decisiones en contextos reales.</p>
+                        </div>
                     </div>
-                   
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-
-  <div id="services" class="our-services section">
-    <div class="services-right-dec">
-      <img src="{{ asset ('home/img/services-right-dec.png') }}" >
-
-    </div>
-    <div class="container">
-      <div class="services-left-dec">
-        <img src="{{ asset ('home/img/services-left-dec.png') }}" >
-      </div>
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-            <h2>Que <em>es </em>FinanSisTech<span>?</span></h2>
-            <span>Our Services</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-carousel owl-services">
-            <div class="item">
-              <h4>Plataforma Educativa Integral</h4>
-              <div class="icon"> <img src="{{ asset ('home/img/service-icon-01.png') }}" > </div>
-              <p>Proporciona a docentes y alumnos una experiencia completa en el mundo de las instituciones y empresas.</p>
-            </div>
-            <div class="item">
-              <h4>Experiencia Envolvente</h4>
-              <div class="icon"><img src="{{ asset ('home/img/service-icon-02.png') }}" > </div>
-              <p>Crea un entorno virtual realista donde los usuarios pueden interactuar con situaciones empresariales y financieras de la vida real.</p>
-            </div>
-            <div class="item">
-              <h4>Teoría y Práctica en Conjunto</h4>
-              <div class="icon"><img src="{{ asset ('home/img/service-icon-03.png') }}" > </div>
-              <p>Entendemos que la verdadera comprensión proviene de combinar la teoría con la práctica</p>
-            </div>
-            <div class="item">
-              <h4>Enfoque en Seguridad Educativa</h4>
-              <div class="icon"><img src="{{ asset ('home/img/service-icon-04.png') }}" > </div>
-              <p>Esto brinda un ambiente seguro para explorar, tomar decisiones y aprender de los resultados.</p>
-            </div>
-            <div class="item">
-              <h4>Interacción Institucional y Empresarial</h4>
-                <div class="icon"><img src="{{ asset ('home/img/service-icon-01.png') }}" > </div>
-              <p>Los usuarios pueden explorar cómo funcionan las operaciones financieras, la toma de decisiones en contextos reales.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="contact" class="contact-us section">
+<div id="contact" class="contact-us section">
     <div class="container">
       <div class="row">
         <div class="col-lg-7">
@@ -172,51 +144,26 @@
         </div>
         <div class="col-lg-5 align-self-center">
           <form id="contact" action="" method="get" style="width: 600px; height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-           <!-- <img src="{{ asset('home/img/itsl.jpeg') }}" alt="" style="width: 580px; height: 430px;"> -->
+           <img src="{{ asset('') }}" alt="" style="width: 580px; height: 430px;"> 
           </form>
         </div>
       </div>
     </div>
+    
     <div class="contact-dec">
-      <img src="{{ asset ('home/img/contact-dec.png') }}" alt="">
+      <img src="{{ asset ('img/home/images/contact-dec.png') }}" alt="">
     </div>
     <div class="contact-left-dec">
-      <img src="{{ asset ('home/img/contact-left-dec.png') }}" alt="">
+      <img src="{{ asset ('img/home/images/contact-left-dec.png') }}" alt="">
     </div>
   </div>
-  <footer>
-  <div class="footer-dec">
-    <img src="{{ asset ('home/img/footer-dec.png') }}" alt="">
-  </div>
+    <footer>
+    <div class="footer-dec">
+        <img src="{{ asset('img/home/images/footer-dec.png') }}" alt="">
+    </div>
+    <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
-          <div class="about footer-item">
-            <div class="logo">
-              <a href="#"><img src="{{ asset ('home/img/logo.png') }}" alt="Onix Digital TemplateMo"></a>
-            </div>
-            <a href="#">info@company.com</a>
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="services footer-item">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#">SEO Development</a></li>
-              <li><a href="#">Business Growth</a></li>
-              <li><a href="#">Social Media Managment</a></li>
-              <li><a href="#">Website Optimization</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-        
         <div class="col-lg-12">
           <div class="copyright">
             <p>Copyright © 2021 Onix Digital Co., Ltd. All Rights Reserved. 
@@ -224,36 +171,32 @@
             Designed by <a rel="nofollow" href="https://templatemo.com" title="free CSS templates">TemplateMo</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </footer>
+</div>
 
+</footer>
 
-  <!-- Scripts -->
-<script src="{{ asset('home/js/jquery.min.js') }}"></script>
-<script src="{{ asset('home/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('home/js/owl-carousel.js') }}"></script>
-<script src="{{ asset('home/js/animation.js') }}"></script>
-<script src="{{ asset('home/js/imagesloaded.js') }}"></script>
-<script src="{{ asset('home/js/custom.js') }}"></script>
-  <script>
-  // Acc
-    $(document).on("click", ".naccs .menu div", function() {
-      var numberIndex = $(this).index();
-
-      if (!$(this).is("active")) {
-          $(".naccs .menu div").removeClass("active");
-          $(".naccs ul li").removeClass("active");
-
-          $(this).addClass("active");
-          $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
-
-          var listItemHeight = $(".naccs ul")
-            .find("li:eq(" + numberIndex + ")")
-            .innerHeight();
-          $(".naccs ul").height(listItemHeight + "px");
-        }
-    });
-  </script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/home/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('home/homejs/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/home/owl-carousel.js') }}"></script>
+    <script src="{{ asset('js/home/animation.js') }}"></script>
+    <script src="{{ asset('js/home/imagesloaded.js') }}"></script>
+    <script src="{{ asset('js/home/custom.js') }}"></script>
+    <script>
+        // Acc
+        $(document).on("click", ".naccs .menu div", function() {
+            var numberIndex = $(this).index();
+            if (!$(this).is("active")) {
+                $(".naccs .menu div").removeClass("active");
+                $(".naccs ul li").removeClass("active");
+                $(this).addClass("active");
+                $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+                var listItemHeight = $(".naccs ul")
+                    .find("li:eq(" + numberIndex + ")")
+                    .innerHeight();
+                $(".naccs ul").height(listItemHeight + "px");
+            }
+        });
+    </script>
 </body>
 </html>

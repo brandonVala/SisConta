@@ -11,13 +11,23 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Usuarios
  *
- * @ORM\Table(name="usuarios")
+ * @ORM\Table(name="usuarios",
+ *     uniqueConstraints={
+ *         @ORM\UniqueConstraint(name="unique_email", columns={"Email"})
+ *     }
+ * )
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="App\Repository\UsuariosRepository")
- * 
  */
 class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
 {
+     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
     /**
      * @var string
      *
@@ -50,8 +60,6 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string
      *
      * @ORM\Column(name="Email", type="string", length=45, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $email;
 
@@ -66,14 +74,29 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+     /**
+     * Plain password used for registration, not persisted in the database
+     */
+    private $plainPassword;
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
 
     /**
-     * @var Admin
-     *
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="usuarios")
+     * @ORM\ManyToOne(targetEntity="Admin")
      * @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
      */
     private $admin;
+
     
     public function getAdmin()
     {
@@ -109,6 +132,12 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->idempresa = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getNombre(): ?string
@@ -162,6 +191,13 @@ class Usuarios implements UserInterface, PasswordAuthenticatedUserInterface
     public function getEmail(): ?string
     {
         return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 
     /**

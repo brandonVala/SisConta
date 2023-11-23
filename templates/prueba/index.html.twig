@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PruebaController!{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(233, 234, 255)">
+    <span class="navbar-brand"><img src="img/NuevoLogo2.png" alt="Logo" style="width:115px;"></span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav" style="font-family: 'Castoro', serif;">
+        <li class="nav-item">
+          <a class="nav-link" href="#!inicio"><i class="fas fa-home" style="color: #1AB7CD"></i> Inicio </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!newEjercicio"><i class="fas fa-boxes" style="color: #1AB7CD"></i> Nuevo Ejercicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!registro"><i class="fas fa-edit" style="color: #1AB7CD"></i> Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!polizas"><i class="fas fa-file-invoice" style="color: #1AB7CD"></i> Pólizas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!reportes"><i class="fas fa-book" style="color: #1AB7CD"></i> Reportes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!EdoResultados"><i class="fas fa-file-invoice-dollar" style="color: #1AB7CD"></i> Edo. Resultados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!Balance"><i class="fas fa-balance-scale" style="color:#1AB7CD"></i> Balance Gral.</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" style="font-family: 'Castoro', serif;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-question-circle"
+              style="color: black"></i> Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#!registro">Catálogo de cuentas</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <span class="btn" id="Close"><i class="fas fa-sign-out-alt" style="color: rgb(21, 58, 108);"></i> Cerrar Sesión</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}

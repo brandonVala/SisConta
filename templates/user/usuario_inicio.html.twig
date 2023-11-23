@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="form-group text-center">
+                    <img src="{{ asset('img/perfil.png') }}" alt="app Learning Accounting" width="110" style="margin-bottom: 20px;">
+                    <h2 class="text-black">BIENVENIDO </h2>
+                </div>
+                <div class="" style="border: 1px solid #D9DBDB; border-radius: 15px; background-color: white; padding: 5px;">
+                    <div class="form-group mx-sm-4 text-center">
+                        <br>
+                        <p>Usuario:</p>
+                        <input type="text" class="form-control" id="usuario" value="{{ Emailinicio }}" disabled>
+                    </div>
+                    <div class="form-group mx-sm-4 text-center">
+                        <label class="control-label">Empresa:</label>
+                        <div class="input-group">
+                            <select class="selectpicker form-control" id="empresa" data-style="btn-primary">
+                                <option value="" selected="true">--Selecciona una opción--</option>
+                                {% for Emp in Empresas %}
+                                    <option value="{{ Emp.idEmpresa }}">{{ Emp.Nombre }}</option>
+                                {% endfor %}
+                            </select>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#negocio"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+
+                <div class="" style="border: 1px solid #D9DBDB; border-radius: 15px; background-color: white;">
+                    <br>
+                    <h4 align="center"><strong>Módulos:</strong></h4>
+                    <hr>
+                    <div class="text-center" style="padding:5px;">
+                        <p><strong>Módulo I. Contabilidad financiera</strong></p>
+                        <p>Iniciar actividad fiscal:</p>
+                        <button class="btn btn-primary" style="width:120px;" ng-click="Iniciar(Relacion)">Ir</button>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="text-center" style="padding:5px;">
+                        <p><strong>Módulo II. Contabilidad de costos</strong></p>
+                        <p>Iniciar contabilidad de costos:</p>
+                        <button class="btn btn-success" style="width:120px;" ng-click="Ir(Relacion)">Ir</button>
+                    </div>
+                    <br>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <!--modal Empresa-->
+    <div class="modal fade" id="negocio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Empresa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre de Empresa:</label>
+                            <input type="text" class="form-control" id="Nombre" placeholder="Ej. Juguería Pepe" ng-model="Empresa.Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label>Dirección:</label>
+                            <input type="text" class="form-control" id="Direccion" placeholder="Ej. Calle 5 Poniente 399, Col. Centro" ng-model="Empresa.Direccion">
+                        </div>
+                        <div class "form-group">
+                            <label>Teléfono:</label>
+                            <input type="text" class="form-control" id="Telefono" placeholder="Ej. 276 112 9257" ng-model="Empresa.Telefono">
+                        </div>
+                        <div class="form-group">
+                            <label>RFC:</label>
+                            <input type="text" class="form-control" id="RFC" placeholder="Ej. PEGM9007151H0" ng-model="Empresa.RFC">
+                        </div>
+                        <div class="form-group">
+                            <label>Giro de la empresa:</label>
+                            <select class="selectpicker form-control" data-style="btn-primary" ng-model="Empresa.Giro">
+                                <option value="" selected>-Selecciona una opción-</option>
+                                <option value="Comercial">Comercial</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Servicios">Servicios</option>
+                                <option value="Educativo">Educativo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success" ng-click="btnRegistrarEmp(Empresa)">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal-->
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0"></div>
+                <div class="col-sm-13 align-self-center text-center" style="margin-bottom: 20px;">
+                    <img class="img-circle" id="img_logo" src="{{ asset('img/sin-perfil.png') }}" width="140">
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Iniciar Sesión</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form name="userForm" novalidate>
+                            <div class="form-group">
+                                <input type="text" name="Email" class="form-control" placeholder="Escriba su dirección de correo electrónico..." ng-model="sesion.Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="Contrasena" class="form-control" placeholder="Ingrese su contraseña..." ng-model="sesion.Contrasena" required>
+                            </div>
+                            <button class="btn btn-info btn-block btn-round" ng-click="btnEntrar(sesion)">Entrar</button>
+                        </form>
+                        <div class="signup-section">¿Aún no tienes una cuenta? <a href="Registro.html">Regístrate</a>.</div>
+                    </div>
+                    <div class="text-center"><a href="../index.html"><i class="fas fa-home" style="color: #1AB7CD"></i>Página Principal</a></div>
+                    <div><br></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Aquí puedes agregar cualquier script JavaScript necesario
+    </script>
+{% endblock %}
